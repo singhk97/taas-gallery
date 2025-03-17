@@ -40,7 +40,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 * When using `Image` component, make sure the prefix the `src` with the `basePath` from `next.config.ts` so that the images are served from the correct path.
 
 ```tsx
+import config from "path/to/next.config";
+
 <Image
-  src={`${publicRuntimeConfig.basePath}/next.svg`}
+  src={`${config.basePath}/next.svg`}
 />
 ```
