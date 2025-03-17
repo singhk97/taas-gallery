@@ -2,10 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-
-  publicRuntimeConfig: {
-    basePath: process.env.BASE_PATH || "",
-  },
+  basePath: ""
 };
 
 export default nextConfig;
