@@ -22,6 +22,14 @@ interface TemplatesData {
   templates: Template[];
 }
 
+const resolveImageUrl = (imageUrl: string) => {
+  // If the image URL is relative, prepend the base path
+  if (imageUrl.startsWith('/')) {
+    return `${config.basePath}${imageUrl}`;
+  }
+  return imageUrl;
+}
+
 const TemplateGallery: FC = () => {
   const classes = useStyles();
   const [templates, setTemplates] = useState<Template[]>([]);
@@ -69,7 +77,7 @@ const TemplateGallery: FC = () => {
               key={index}
               title={template.title}
               description={template.description}
-              imageUrl={template.imageUrl}
+              imageUrl={resolveImageUrl(template.imageUrl)}
               githubUrl={template.githubUrl}
               author={template.author}
               language={template.language}
