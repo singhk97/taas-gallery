@@ -1,11 +1,14 @@
 'use client';
 
 import { FC } from 'react';
-import Image from 'next/image';
+import {
+  Text,
+  Input,
+  Checkbox,
+} from '@fluentui/react-components';
+import { Search24Regular } from '@fluentui/react-icons';
 import TemplateCard from '../TemplateCard/TemplateCard';
-import NavBar from '../NavBar/NavBar';
 import useStyles from './TemplateGallery.styles';
-import config from '../../../next.config';
 
 // Sample data - In a real app, this would come from an API or database
 const templates = [
@@ -37,33 +40,36 @@ const TemplateGallery: FC = () => {
 
   return (
     <>
-      <NavBar />
       <div className={classes.root}>
-        <div className={classes.header}>
-          <div className={classes.titleContainer}>
-          <Image 
-              src={`${config.basePath}/teams.svg`}
-              alt="Microsoft Teams"
-              width={40}
-              height={40}
-              className={classes.titleIcon}
-            />
-            <h1 className={classes.title}>Explore AI-Powered Teams Apps</h1>
+        <div className={classes.container}>
+          <div className={classes.sidebar}>
+            <Text className={classes.sidebarTitle}>Filter Templates</Text>
+            <div className={classes.searchContainer}>
+              <Input
+                placeholder="Search templates..."
+                contentBefore={<Search24Regular />}
+              />
+            </div>
+            <div className={classes.filterSection}>
+              <Text className={classes.filterTitle}>Use Case</Text>
+              <div>
+                <Checkbox label="AI Chat" />
+                <Checkbox label="Document Analysis" />
+                <Checkbox label="Meeting Intelligence" />
+              </div>
+            </div>
           </div>
-          <p className={classes.subtitle}>
-            Ready-to-use samples showcasing AI agent integration with Microsoft Teams to enhance collaboration and productivity. ✨
-          </p>
-        </div>
-        <div className={classes.grid}>
-          {templates.map((template) => (
-            <TemplateCard
-              key={template.id}
-              title={template.title}
-              description={template.description}
-              imageUrl={template.imageUrl}
-              author={template.author}
-            />
-          ))}
+          <div className={classes.grid}>
+            {templates.map((template) => (
+              <TemplateCard
+                key={template.id}
+                title={template.title}
+                description={template.description}
+                imageUrl={template.imageUrl}
+                author={template.author}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

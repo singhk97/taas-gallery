@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { Text, Button } from '@fluentui/react-components';
+import { Text } from '@fluentui/react-components';
 import { FaGithub } from 'react-icons/fa';
 import useStyles from './NavBar.styles';
 
