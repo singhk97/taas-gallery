@@ -1,13 +1,9 @@
 "use client";
 
 import { FluentProvider, webDarkTheme, webLightTheme } from '@fluentui/react-components';
-import { createContext, useState } from 'react';
+import { useState } from 'react';
 import useStyles from './layout.styles';
-
-export const ThemeContext = createContext({
-  isDark: false,
-  toggleTheme: () => {},
-});
+import { ThemeContext } from './contexts/ThemeContext';
 
 export default function RootLayout({
   children,

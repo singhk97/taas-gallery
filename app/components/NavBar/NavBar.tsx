@@ -5,7 +5,7 @@ import { Text, Button } from '@fluentui/react-components';
 import { WeatherMoon24Regular, WeatherSunny24Regular } from '@fluentui/react-icons';
 import { FaGithub } from 'react-icons/fa';
 import useStyles from './NavBar.styles';
-import { ThemeContext } from '../../layout';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 const NavBar: FC = () => {
   const classes = useStyles();
