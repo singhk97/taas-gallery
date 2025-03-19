@@ -72,18 +72,35 @@ export default makeStyles({
     WebkitLineClamp: 1,
     textOverflow: 'ellipsis',
   },
-  author: {
+  footer: {
     position: 'absolute',
     bottom: tokens.spacingVerticalS,
     left: tokens.spacingHorizontalM,
     right: tokens.spacingHorizontalM,
     display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  author: {
+    display: 'flex',
     alignItems: 'center',
     gap: tokens.spacingHorizontalXS,
+  },
+  authorText: {
     fontSize: tokens.fontSizeBase100,
     color: tokens.colorNeutralForeground3,
   },
-  authorText: {
+  language: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalXS,
+  },
+  languageDot: {
+    width: '8px',
+    height: '8px',
+    borderRadius: '50%'
+  },
+  languageText: {
     fontSize: tokens.fontSizeBase100,
     color: tokens.colorNeutralForeground3,
   },

@@ -5,6 +5,7 @@ import {
   Card,
   CardPreview,
   Text,
+  tokens,
 } from '@fluentui/react-components';
 import useStyles from './TemplateCard.styles';
 import config from '../../../next.config';
@@ -21,6 +22,29 @@ export interface TemplateCardProps {
 
 const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, githubUrl, author, language, tags }) => {
   const classes = useStyles();
+
+  const getLanguageColor = (language: string) => {
+    // Retrieved from https://gist.github.com/robertpeteuil/bb2dc86f3b3e25d203664d61410bfa30
+    switch (language) {
+      case 'JavaScript':
+        return "#f1e05a";
+      case 'Python':
+        return "#3572A5";
+      case 'TypeScript':
+        return "#2b7489";
+      case 'C#':
+        return "#178600";
+      default:
+        return tokens.colorBrandBackground;
+    }
+  };
+  
+  const languageColorMap = {
+    'JavaScript': "#f1e05a",
+    'Python': "#3572A5",
+    'TypeScript': "#2b7489",
+    'C#': "#178600",
+  };
 
   const handleClick = () => {
     window.open(githubUrl, '_blank');
@@ -45,8 +69,14 @@ const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, git
             </span>
           ))}
         </div>
-        <div className={classes.author}>
-          <Text className={classes.authorText}>by {author}</Text>
+        <div className={classes.footer}>
+          <div className={classes.author}>
+            <Text className={classes.authorText}>by {author}</Text>
+          </div>
+          <div className={classes.language}>
+            <span className={classes.languageDot} style={{ backgroundColor: getLanguageColor(language) }} />
+            <Text className={classes.languageText}>{language}</Text>
+          </div>
         </div>
       </div>
     </Card>
