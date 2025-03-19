@@ -6,6 +6,7 @@ import useStyles from './TemplateGallery.styles';
 import TemplateCard from '../TemplateCard/TemplateCard';
 import { FC, useEffect, useState } from 'react';
 import { parse } from 'yaml';
+import config from '../../../next.config';
 
 interface Template {
   title: string;
@@ -28,7 +29,7 @@ const TemplateGallery: FC = () => {
   useEffect(() => {
     async function loadTemplates() {
       try {
-        const response = await fetch('/data/templates.yaml');
+        const response = await fetch(`${config.basePath}/data/templates.yaml`);
         console.log(response);
         const yamlText = await response.text();
         console.log(yamlText)
