@@ -1,0 +1,45 @@
+templates:
+  - title: "Data Analyst Agent"
+    description: "Natural language interface for data exploration and visualization."
+    tags: 
+      - "llm-sql"
+      - "adaptive-cards"
+      - "data-viz"
+    githubUrl: "https://github.com/microsoft/teams-agent-accelerator-samples/blob/main/js/data-analyst-agent"
+    imageUrl: "/data-analyst-thumbnail.png"
+    author: "Microsoft"
+    language: "JavaScript"
+
+  - title: "Computer Use Agent"
+    description: "AI-powered automation of computer tasks through Teams interface."
+    tags:
+      - "computer-use"
+      - "human-in-the-loop"
+      - "stateful"
+      - "visual-feedback"
+    githubUrl: "https://github.com/microsoft/teams-agent-accelerator-samples/blob/main/python/computer-use-agent"
+    imageUrl: "/cua-thumbnail.png"
+    author: "Microsoft"
+    language: "Python"
+
+  - title: "Web Browsing Agent"
+    description: "Autonomous web navigation and interaction capabilities."
+    tags:
+      - "browser-automation"
+      - "visual-feedback"
+      - "stateful"
+    githubUrl: "https://github.com/microsoft/teams-agent-accelerator-samples/blob/main/python/web-browsing-agent"
+    imageUrl: "/web-browser-thumbnail.png"
+    author: "Microsoft"
+    language: "Python"
+
+  - title: "Memory Sample Agent"
+    description: "Sample agent demonstrating the use of memory to enhance capabilities."
+    tags:
+      - "memory"
+      - "agent"
+      - "python"
+    githubUrl: "https://github.com/microsoft/teams-agent-accelerator-samples/blob/main/python/memory-sample-agent"
+    imageUrl: "/memory-thumbnail.png"
+    author: "Microsoft"
+    language: "Python" 

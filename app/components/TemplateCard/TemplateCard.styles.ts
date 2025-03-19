@@ -15,7 +15,9 @@ export default makeStyles({
     flexDirection: 'column',
     ':hover': {
       backgroundColor: tokens.colorNeutralBackground2,
-    }
+    },
+    boxShadow: 'none',
+    border: `1px solid ${tokens.colorNeutralStroke1}`,
   },
   preview: {
     height: '170px',
@@ -36,14 +38,14 @@ export default makeStyles({
     flexDirection: 'column',
   },
   title: {
-    fontSize: tokens.fontSizeBase500,
+    fontSize: tokens.fontSizeBase400,
     fontWeight: tokens.fontWeightBold,
     color: tokens.colorNeutralForeground1,
     lineHeight: tokens.lineHeightBase300,
   },
   description: {
     fontSize: tokens.fontSizeBase300,
-    color: tokens.colorNeutralForeground3,
+    color: tokens.colorNeutralForeground2,
     lineHeight: tokens.lineHeightBase200,
     overflow: 'hidden',
     display: '-webkit-box',

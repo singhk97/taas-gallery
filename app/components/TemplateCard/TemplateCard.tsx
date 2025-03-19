@@ -13,14 +13,20 @@ export interface TemplateCardProps {
   title: string;
   description: string;
   imageUrl: string;
+  githubUrl: string;
   author: string;
+  language: string;
 }
 
-const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, author }) => {
+const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, githubUrl, author }) => {
   const classes = useStyles();
 
+  const handleClick = () => {
+    window.open(githubUrl, '_blank');
+  };
+
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} onClick={handleClick}>
       <CardPreview className={classes.preview}>
         <img 
           src={imageUrl || `${config.basePath}/placeholder-img.svg`} 

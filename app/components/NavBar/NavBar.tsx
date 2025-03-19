@@ -1,12 +1,15 @@
 'use client';
 
-import { FC } from 'react';
-import { Text } from '@fluentui/react-components';
+import { FC, useContext } from 'react';
+import { Text, Button } from '@fluentui/react-components';
+import { WeatherMoon24Regular, WeatherSunny24Regular } from '@fluentui/react-icons';
 import { FaGithub } from 'react-icons/fa';
 import useStyles from './NavBar.styles';
+import { ThemeContext } from '../../layout';
 
 const NavBar: FC = () => {
   const classes = useStyles();
+  const { isDark, toggleTheme } = useContext(ThemeContext);
 
   return (
     <nav className={classes.nav}>
@@ -23,6 +26,12 @@ const NavBar: FC = () => {
         >
           <FaGithub className={classes.icon} />
         </a>
+        <Button
+          icon={isDark ? <WeatherSunny24Regular /> : <WeatherMoon24Regular />}
+          appearance="subtle"
+          onClick={toggleTheme}
+          title={isDark ? "Switch to light theme" : "Switch to dark theme"}
+        />
       </div>
     </nav>
   );
