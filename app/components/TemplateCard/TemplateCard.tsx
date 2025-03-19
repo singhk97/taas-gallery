@@ -16,9 +16,10 @@ export interface TemplateCardProps {
   githubUrl: string;
   author: string;
   language: string;
+  tags: string[];
 }
 
-const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, githubUrl, author }) => {
+const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, githubUrl, author, language, tags }) => {
   const classes = useStyles();
 
   const handleClick = () => {
@@ -37,6 +38,13 @@ const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, git
       <div className={classes.content}>
         <Text className={classes.title}>{title}</Text>
         <Text className={classes.description}>{description}</Text>
+        <div className={classes.tags}>
+          {tags.slice(0, 2)?.map((tag, index) => (
+            <span key={index} className={classes.tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
         <div className={classes.author}>
           <Text className={classes.authorText}>by {author}</Text>
         </div>

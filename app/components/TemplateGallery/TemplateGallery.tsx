@@ -72,6 +72,7 @@ const TemplateGallery: FC = () => {
               githubUrl={template.githubUrl}
               author={template.author}
               language={template.language}
+              tags={template.tags}
             />
           ))}
         </div>
