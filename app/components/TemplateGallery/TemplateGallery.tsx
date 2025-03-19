@@ -54,7 +54,7 @@ const TemplateGallery: FC = () => {
   return (
     <div className={classes.root}>
       <div className={classes.container}>
-      <div className={classes.sidebar}>
+        {/* <div className={classes.sidebar}>
             <Text className={classes.sidebarTitle}>Filter Templates</Text>
             <div className={classes.searchContainer}>
               <Input
@@ -70,7 +70,7 @@ const TemplateGallery: FC = () => {
                 <Checkbox label="Meeting Intelligence" />
               </div>
             </div>
-          </div>
+          </div> */}
         <div className={classes.grid}>
           {templates.map((template, index) => (
             <TemplateCard

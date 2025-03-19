@@ -20,6 +20,9 @@ export default makeStyles({
         fontSize: tokens.fontSizeHero900,
         fontWeight: tokens.fontWeightSemibold,
         color: tokens.colorNeutralForeground1,
+        '@media (max-width: 700px)': {
+            fontSize: tokens.fontSizeBase600,
+        }
     },
     titleIcon: {
         width: '40px',
@@ -31,5 +34,8 @@ export default makeStyles({
         lineHeight: tokens.lineHeightBase500,
         maxWidth: '1200px',
         margin: '0 auto',
+        '@media (max-width: 700px)': {
+            fontSize: tokens.fontSizeBase400,
+        }
     },
 });

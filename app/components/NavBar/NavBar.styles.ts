@@ -21,6 +21,9 @@ export default makeStyles({
   logoText: {
     fontSize: tokens.fontSizeBase500,
     fontWeight: tokens.fontWeightSemibold,
+    '@media (max-width: 500px)': {
+      fontSize: tokens.fontSizeBase300,
+    }
   },
   navLinks: {
     display: 'flex',
@@ -34,6 +37,10 @@ export default makeStyles({
     ':hover': {
       color: tokens.colorNeutralForeground1,
     },
+    '@media (max-width: 500px)': {
+      fontSize: tokens.fontSizeBase200,
+      display: 'none',
+    }
   },
   iconLink: {
     color: tokens.colorNeutralForeground3,

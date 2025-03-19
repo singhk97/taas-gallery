@@ -14,7 +14,7 @@ const NavBar: FC = () => {
   return (
     <nav className={classes.nav}>
       <a href="/" className={classes.logo}>
-        <Text className={classes.logoText}>🤖 Teams Agent Accelerator Samples</Text>
+        <Text className={classes.logoText}>🤖 Teams AI Accelerator Group</Text>
       </a>
       <div className={classes.navLinks}>
         <a href="/about" className={classes.link}>About</a>

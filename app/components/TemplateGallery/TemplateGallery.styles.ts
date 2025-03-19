@@ -36,7 +36,13 @@ export default makeStyles({
     flex: 1,
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: tokens.spacingHorizontalXXL,
+    gap: tokens.spacingHorizontalL,
     alignItems: 'start',
+    justifyItems: 'center',
+    '& > *:first-child:last-child': {
+      gridColumn: '1 / -1',
+      maxWidth: '330px',
+      justifySelf: 'center',
+    }
   },
 }); 
