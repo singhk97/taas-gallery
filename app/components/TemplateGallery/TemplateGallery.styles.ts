@@ -35,7 +35,8 @@ export default makeStyles({
   grid: {
     flex: 1,
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
     gap: tokens.spacingHorizontalXXL,
+    alignItems: 'start',
   },
 }); 

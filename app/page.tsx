@@ -8,7 +8,7 @@ import { makeStyles, tokens } from '@fluentui/react-components';
 const useStyles = makeStyles({
   root: {
     padding: tokens.spacingHorizontalXXL,
-    maxWidth: '1200px',
+    maxWidth: '1400px',
     margin: '0 auto',
   },
 })
@@ -19,8 +19,8 @@ export default function Home() {
   return (
     <main>
       <NavBar />
-      <Header />
       <div className={classes.root}>
+        <Header />
         <TemplateGallery />
       </div>
     </main>

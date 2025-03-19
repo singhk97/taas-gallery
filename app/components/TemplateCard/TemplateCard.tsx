@@ -21,11 +21,11 @@ const TemplateCard: FC<TemplateCardProps> = ({ title, description, imageUrl, aut
 
   return (
     <Card className={classes.card}>
-      <CardPreview>
+      <CardPreview className={classes.preview}>
         <img 
           src={imageUrl || `${config.basePath}/placeholder-img.svg`} 
           alt={title}
-          className={classes.preview}
+          className={classes.previewImage}
         />
       </CardPreview>
       <div className={classes.content}>
