@@ -20,6 +20,7 @@ export default makeStyles({
     alignItems: 'center',
     justifyContent: 'space-between',
     zIndex: 1,
+    marginBottom: tokens.spacingVerticalXL,
   },
   mainContent: {
     padding: tokens.spacingVerticalXXL,
@@ -56,17 +57,19 @@ export default makeStyles({
     flexDirection: 'column',
     gap: tokens.spacingVerticalL,
   },
-  titleRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: tokens.spacingHorizontalL,
-    marginBottom: tokens.spacingVerticalL,
-  },
   title: {
     fontSize: tokens.fontSizeHero900,
     lineHeight: tokens.lineHeightBase600,
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorNeutralForeground1,
+    paddingBottom: tokens.spacingVerticalL,
+    marginBottom: tokens.spacingVerticalL,
+  },
+  titleRow: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalL,
+    // marginBottom: tokens.spacingVerticalL,
   },
   titleMeta: {
     display: 'flex',
@@ -123,7 +126,9 @@ export default makeStyles({
     lineHeight: tokens.lineHeightHero800,
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorNeutralForeground1,
-    marginBottom: tokens.spacingVerticalM,
+    paddingBottom: tokens.spacingVerticalM,
+    borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
+    marginBottom: tokens.spacingVerticalL,
   },
   link: {
     color: tokens.colorBrandForegroundLink,
@@ -150,15 +155,31 @@ export default makeStyles({
     display: 'flex',
     alignItems: 'flex-start',
     gap: tokens.spacingHorizontalS,
+    '&::before': {
+      content: '"•"',
+      color: tokens.colorNeutralForeground3,
+      fontSize: tokens.fontSizeBase600,
+      lineHeight: tokens.lineHeightBase600,
+      marginRight: tokens.spacingHorizontalS,
+    },
   },
   demoContainer: {
     width: '100%',
     borderRadius: tokens.borderRadiusLarge,
     overflow: 'hidden',
-    // border: `1px solid ${tokens.colorNeutralStroke1}`,
   },
   demo: {
+    width: '50%',
     height: 'auto',
     display: 'block',
+  },
+  meta: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: tokens.spacingHorizontalM,
+    padding: `${tokens.spacingVerticalS} ${tokens.spacingHorizontalM}`,
+    backgroundColor: tokens.colorNeutralBackground2,
+    borderRadius: tokens.borderRadiusMedium,
+    flexWrap: 'wrap',
   },
 }); 

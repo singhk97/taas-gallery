@@ -34,7 +34,9 @@ const processMarkdownLinks = (text: string): JSX.Element[] => {
         </Link>
       );
     }
-    return <span key={index}>{part}</span>;
+    return <span key={index}>{part.split('\n').map((line, i) => (
+      i === 0 ? line : <><br /><br />{line}</>
+    ))}</span>;
   });
 };
 
