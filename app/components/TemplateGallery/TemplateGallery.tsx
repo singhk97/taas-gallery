@@ -16,6 +16,10 @@ interface Template {
   imageUrl: string;
   author: string;
   language: string;
+  readmeUrl: string;
+  demoUrlGif: string;
+  longDescription: string;
+  featuresList: string[];
 }
 
 interface TemplatesData {
@@ -82,6 +86,10 @@ const TemplateGallery: FC = () => {
               author={template.author}
               language={template.language}
               tags={template.tags}
+              readmeUrl={template.readmeUrl}
+              demoUrlGif={template.demoUrlGif}
+              longDescription={template.longDescription}
+              featuresList={template.featuresList}
             />
           ))}
         </div>
