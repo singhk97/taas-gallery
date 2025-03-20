@@ -112,7 +112,7 @@ const TemplateDetails: FC<TemplateDetailsProps> = ({
         <div className={classes.mainContent}>
           <div className={classes.imageContainer}>
             <img
-              src={`${config.basePath}${imageUrl}`}
+              src={imageUrl}
               alt={title}
               className={classes.image}
             />
