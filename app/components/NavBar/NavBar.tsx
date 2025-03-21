@@ -6,7 +6,6 @@ import { WeatherMoon24Regular, WeatherSunny24Regular } from '@fluentui/react-ico
 import { FaGithub } from 'react-icons/fa';
 import useStyles from './NavBar.styles';
 import { ThemeContext } from '../../contexts/ThemeContext';
-import config from '../../../next.config';
 import Link from 'next/link';
 
 const NavBar: FC = () => {

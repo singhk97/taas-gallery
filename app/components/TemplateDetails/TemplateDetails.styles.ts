@@ -4,12 +4,12 @@ import { makeStyles, tokens } from '@fluentui/react-components';
 
 export default makeStyles({
   container: {
-    width: '1200px',
-    maxWidth: '90vw',
+    maxWidth: '1200px',
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    padding: `calc(${tokens.spacingHorizontalXXXL} * 3)`,
+    padding: `${tokens.spacingHorizontalXXXL} calc(${tokens.spacingHorizontalXXXL} * 2)`,
+    position: 'relative',
   },
   header: {
     top: 0,
@@ -23,21 +23,50 @@ export default makeStyles({
     marginBottom: tokens.spacingVerticalXL,
   },
   mainContent: {
-    padding: tokens.spacingVerticalXXL,
-    paddingTop: 0,
+    display: 'flex',
+    position: 'relative',
+    '@media (max-width: 800px)': {
+      flexDirection: 'column',
+      gap: tokens.spacingVerticalXL,
+    }
   },
-  backButton: {
-    alignSelf: 'flex-start',
-    marginBottom: tokens.spacingVerticalS,
+  leftColumn: {
+    position: 'relative',
+    flex: '1 1 350px',
+    borderRight: `1px solid ${tokens.colorNeutralStroke1}`,
+    paddingRight: `calc(${tokens.spacingHorizontalXXXL} * 2)`,
+    '@media (max-width: 800px)': {
+      flex: '1 1 auto',
+      borderRight: 'none',
+      paddingRight: 0,
+    }
   },
-  overview: {
+  leftColumnContent: {
     display: 'flex',
     flexDirection: 'column',
-    gap: tokens.spacingVerticalL,
+    gap: tokens.spacingVerticalXL,
+    position: 'sticky',
+    top: tokens.spacingVerticalXXL,
+    maxHeight: 'calc(100vh - 200px)',
+    '@media (max-width: 800px)': {
+      position: 'relative',
+      top: 0,
+      maxHeight: 'none',
+    }
+  },
+  rightColumn: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalXXL,
+    flex: '2 1 700px',
+    paddingLeft: `calc(${tokens.spacingHorizontalXXXL} * 2)`,
+    '@media (max-width: 800px)': {
+      paddingLeft: 0,
+    }
   },
   imageContainer: {
     width: '100%',
-    marginBottom: tokens.spacingVerticalXXL,
+    height: '100%',
     borderRadius: tokens.borderRadiusLarge,
     overflow: 'hidden',
     border: `1px solid ${tokens.colorNeutralStroke1}`,
@@ -47,48 +76,58 @@ export default makeStyles({
     height: 'auto',
     display: 'block',
   },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: tokens.spacingVerticalXXL,
-  },
-  section: {
+  titleContainer: {
     display: 'flex',
     flexDirection: 'column',
     gap: tokens.spacingVerticalL,
   },
   title: {
-    fontSize: tokens.fontSizeHero900,
-    lineHeight: tokens.lineHeightBase600,
+    fontSize: tokens.fontSizeHero700,
+    lineHeight: tokens.lineHeightHero700,
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorNeutralForeground1,
-    paddingBottom: tokens.spacingVerticalL,
-    marginBottom: tokens.spacingVerticalL,
   },
-  titleRow: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: tokens.spacingHorizontalL,
-    // marginBottom: tokens.spacingVerticalL,
+  description: {
+    fontSize: tokens.fontSizeBase400,
+    lineHeight: tokens.lineHeightBase400,
+    color: tokens.colorNeutralForeground1,
   },
   titleMeta: {
     display: 'flex',
+    gap: tokens.spacingHorizontalXL,
+    marginBottom: tokens.spacingVerticalL,
+  },
+  metaSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalXS,
+  },
+  metaLabel: {
+    fontSize: tokens.fontSizeBase200,
+    color: tokens.colorNeutralForeground3,
+    fontWeight: tokens.fontWeightSemibold,
+  },
+  metaContent: {
+    fontSize: tokens.fontSizeBase400,
+    color: tokens.colorNeutralForeground1,
+    display: 'flex',
     alignItems: 'center',
-    gap: tokens.spacingHorizontalM,
-    marginLeft: tokens.spacingHorizontalM,
+    gap: tokens.spacingHorizontalXS,
   },
   language: {
     display: 'flex',
     alignItems: 'center',
     gap: tokens.spacingHorizontalXS,
+    fontSize: tokens.fontSizeBase300,
   },
   languageDot: {
-    width: '10px',
-    height: '10px',
+    width: '8px',
+    height: '8px',
     borderRadius: '50%',
   },
   separator: {
     color: tokens.colorNeutralForeground3,
+    fontSize: tokens.fontSizeBase300,
   },
   tags: {
     display: 'flex',
@@ -102,43 +141,21 @@ export default makeStyles({
     padding: `${tokens.spacingVerticalXXS} ${tokens.spacingHorizontalS}`,
     borderRadius: tokens.borderRadiusMedium,
   },
-  actions: {
-    marginTop: tokens.spacingVerticalM,
-  },
-  readme: {
-    backgroundColor: tokens.colorNeutralBackground1,
-    borderRadius: tokens.borderRadiusLarge,
-    border: `1px solid ${tokens.colorNeutralStroke1}`,
-    padding: tokens.spacingHorizontalL,
-  },
   contentBox: {
-    backgroundColor: tokens.colorNeutralBackground2,
-    borderRadius: tokens.borderRadiusXLarge,
-    padding: tokens.spacingHorizontalXL,
   },
-  description: {
-    fontSize: tokens.fontSizeBase500,
-    lineHeight: tokens.lineHeightBase500,
-    color: tokens.colorNeutralForeground1,
+  section: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: tokens.spacingVerticalL,
   },
   sectionTitle: {
-    fontSize: tokens.fontSizeHero800,
-    lineHeight: tokens.lineHeightHero800,
+    fontSize: tokens.fontSizeBase600,
+    lineHeight: tokens.lineHeightBase600,
     fontWeight: tokens.fontWeightSemibold,
     color: tokens.colorNeutralForeground1,
     paddingBottom: tokens.spacingVerticalM,
     borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
     marginBottom: tokens.spacingVerticalL,
-  },
-  link: {
-    color: tokens.colorBrandForegroundLink,
-    textDecoration: 'none',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-  },
-  features: {
-    marginTop: tokens.spacingVerticalM,
   },
   featuresList: {
     display: 'flex',
@@ -149,8 +166,8 @@ export default makeStyles({
     margin: 0,
   },
   featureItem: {
-    fontSize: tokens.fontSizeBase500,
-    lineHeight: tokens.lineHeightHero700,
+    fontSize: tokens.fontSizeBase400,
+    lineHeight: tokens.lineHeightBase400,
     color: tokens.colorNeutralForeground1,
     display: 'flex',
     alignItems: 'flex-start',
@@ -158,8 +175,8 @@ export default makeStyles({
     '&::before': {
       content: '"•"',
       color: tokens.colorNeutralForeground3,
-      fontSize: tokens.fontSizeBase600,
-      lineHeight: tokens.lineHeightBase600,
+      fontSize: tokens.fontSizeBase500,
+      lineHeight: tokens.lineHeightBase500,
       marginRight: tokens.spacingHorizontalS,
     },
   },
@@ -167,19 +184,11 @@ export default makeStyles({
     width: '100%',
     borderRadius: tokens.borderRadiusLarge,
     overflow: 'hidden',
+    border: `1px solid ${tokens.colorNeutralStroke1}`,
   },
   demo: {
-    width: '50%',
+    width: '100%',
     height: 'auto',
     display: 'block',
-  },
-  meta: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: tokens.spacingHorizontalM,
-    padding: `${tokens.spacingVerticalS} ${tokens.spacingHorizontalM}`,
-    backgroundColor: tokens.colorNeutralBackground2,
-    borderRadius: tokens.borderRadiusMedium,
-    flexWrap: 'wrap',
   },
 }); 

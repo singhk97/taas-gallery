@@ -5,7 +5,6 @@ import { Button, Text, Link, tokens } from '@fluentui/react-components';
 import { ArrowLeft24Regular, Open16Regular } from '@fluentui/react-icons';
 import Modal from '../Modal/Modal';
 import useStyles from './TemplateDetails.styles';
-import config from '../../../next.config';
 
 interface TemplateDetailsProps {
   isOpen: boolean;
@@ -22,43 +21,46 @@ interface TemplateDetailsProps {
   author: string;
 }
 
-const processMarkdownLinks = (text: string): JSX.Element[] => {
+const renderMarkdown = (text: string): JSX.Element => {
+  // First process bold text
+  const processBold = (part: string): JSX.Element[] => {
+    const parts = part.split(/(\*\*.*?\*\*)/g);
+    return parts.map((boldPart, idx) => {
+      const boldMatch = boldPart.match(/\*\*(.*?)\*\*/);
+      if (boldMatch) {
+        return <b key={idx}>{boldMatch[1]}</b>;
+      }
+      return <span key={idx}>{boldPart}</span>;
+    });
+  };
+
+  // Then process links and line breaks
   const parts = text.split(/(\[.*?\]\(.*?\))/g);
-  return parts.map((part, index) => {
+  const elements = parts.map((part, index) => {
     const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
     if (linkMatch) {
       const [, text, url] = linkMatch;
       return (
         <Link key={index} href={url} target="_blank">
-          {text}
+          {processBold(text)}
         </Link>
       );
     }
-    return <span key={index}>{part.split('\n').map((line, i) => (
-      i === 0 ? line : <><br /><br />{line}</>
-    ))}</span>;
+    return <span key={index}>
+      {part.split('\n').map((line, i) => (
+        i === 0 ? processBold(line) : <span key={i}><br /><br />{processBold(line)}</span>
+      ))}
+    </span>;
   });
-};
 
-const processMarkdownBold = (text: string): JSX.Element => {
-  const parts = text.split(/(\*\*.*?\*\*)/g);
-  return (
-    <>
-      {parts.map((part, index) => {
-        const boldMatch = part.match(/\*\*(.*?)\*\*/);
-        if (boldMatch) {
-          return <b key={index}>{boldMatch[1]}</b>;
-        }
-        return <span key={index}>{part}</span>;
-      })}
-    </>
-  );
+  return <span>{elements}</span>;
 };
 
 const TemplateDetails: FC<TemplateDetailsProps> = ({
   isOpen,
   onClose,
   title,
+  description,
   longDescription,
   featuresList,
   githubUrl,
@@ -96,61 +98,70 @@ const TemplateDetails: FC<TemplateDetailsProps> = ({
           >
             Back to Gallery
           </Button>
-
           <Button
-            appearance="subtle"
+            appearance="primary"
             icon={<Open16Regular />}
             as="a"
             href={githubUrl}
             target="_blank"
-            size="small"
           >
             View on GitHub
           </Button>
         </div>
 
         <div className={classes.mainContent}>
-          <div className={classes.imageContainer}>
-            <img
-              src={imageUrl}
-              alt={title}
-              className={classes.image}
-            />
-          </div>
-
-          <div className={classes.content}>
-            <div className={classes.section}>
-              <div className={classes.titleRow}>
-                <Text as="h1" className={classes.title}>{title}</Text>
+          <div className={classes.leftColumn}>
+            <div className={classes.leftColumnContent}>
+              <div className={classes.imageContainer}>
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  className={classes.image}
+                />
+              </div>
+              <div className={classes.titleContainer}>
+                <Text className={classes.title}>{title}</Text>
+                <Text className={classes.description}>{description}</Text>
                 <div className={classes.titleMeta}>
-                  <div className={classes.language}>
-                    <span className={classes.languageDot} style={{ backgroundColor: getLanguageColor(language) }} />
-                    <Text>{language}</Text>
+                  <div className={classes.metaSection}>
+                    <Text className={classes.metaLabel}>LANGUAGE</Text>
+                    <div className={classes.language}>
+                      <span className={classes.languageDot} style={{ backgroundColor: getLanguageColor(language) }} />
+                      <Text>{language}</Text>
+                    </div>
                   </div>
-                  <Text className={classes.separator}>•</Text>
-                  <div className={classes.tags}>
-                    {tags.map((tag, index) => (
-                      <span key={index} className={classes.tag}>
-                        {tag}
-                      </span>
-                    ))}
+                  <div className={classes.metaSection}>
+                    <Text className={classes.metaLabel}>TAGS</Text>
+                    <div className={classes.tags}>
+                      {tags.map((tag, index) => (
+                        <span key={index} className={classes.tag}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className={classes.rightColumn}>
+            <div className={classes.section}>
+              <Text className={classes.sectionTitle}>Description</Text>
               <div className={classes.contentBox}>
                 <div className={classes.description}>
-                  {processMarkdownLinks(longDescription)}
+                  {renderMarkdown(longDescription)}
                 </div>
               </div>
             </div>
 
             <div className={classes.section}>
-              <Text as="h2" className={classes.sectionTitle}>Features</Text>
+              <Text className={classes.sectionTitle}>Features</Text>
               <div className={classes.contentBox}>
                 <ul className={classes.featuresList}>
                   {featuresList.map((feature, index) => (
                     <li key={index} className={classes.featureItem}>
-                      {processMarkdownBold(feature)}
+                      {renderMarkdown(feature)}
                     </li>
                   ))}
                 </ul>
@@ -158,7 +169,7 @@ const TemplateDetails: FC<TemplateDetailsProps> = ({
             </div>
 
             <div className={classes.section}>
-              <Text as="h2" className={classes.sectionTitle}>Demo</Text>
+              <Text className={classes.sectionTitle}>Demo</Text>
               <div className={classes.demoContainer}>
                 <img
                   src={demoUrlGif}
