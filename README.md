@@ -1,41 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teams AI Accelerator Gallery
+
+A template gallery showcasing AI-powered Teams applications built by the Teams AI Accelerator Group.
+
+## Overview
+
+This gallery is built with:
+
+- [Next.js 15](https://nextjs.org/) (Static Export)
+- [React 18](https://react.dev/)
+- [Fluent UI](https://react.fluentui.dev/)
+- [Node.js 20](https://nodejs.org/)
+- [pnpm](https://pnpm.io/)
+
+The gallery provides a curated collection of Teams app templates that developers can use as starting points for building their own AI-powered Teams applications. Each template includes:
+
+- Source code and documentation
+- Live demo
+- Implementation details
+- Key features
+- Setup instructions
+
+## Features
+
+- 🎨 Modern, responsive UI built with Fluent UI components
+- 🌗 Light/dark theme support
+- 📱 Mobile-friendly design
+- 📖 Detailed template documentation
+- 🚀 Link to Github project
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production Build
 
-## Learn More
+To create static export build to `out/` folder, run:
 
-To learn more about Next.js, take a look at the following resources:
+```
+pnpm next build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> Next.js [static export](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) builds the 
+> application into HTML, CSS, JS, and static assets that can be deployed as a static page. Hence features like 
+> Server-side rendering, Dynamic routes, and many more do not work. The local development server support these features
+> and so it is possible to introduce code changes that work locally but will failed on static export build. 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Templates
 
-## Deploy on Vercel
+Templates in the gallery are loaded from the `public/data/templates.yaml` file.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Appendix
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Caveats
+### Caveats
 
 * When using `Image` component, make sure the prefix the `src` with the `basePath` from `next.config.ts` so that the images are served from the correct path.
 
@@ -45,4 +68,12 @@ import config from "path/to/next.config";
 <Image
   src={`${config.basePath}/next.svg`}
 />
+```
+
+* The following issue occurs when using the `FluentProvider` for which there's a hacky solution. However it is not affecting the production static build nor the performance of the site. Hence we're ignoring it for now. It will show up as a console error in the dev environment though.
+
+```
+@fluentui/react-provider: There are conflicting ids in your DOM. Please make sure that you configured your application properly. 
+ 
+ Configuration guide: https://aka.ms/fluentui-conflicting-ids
 ```
