@@ -2,6 +2,8 @@
 
 A template gallery showcasing AI-powered Teams applications built by the Teams AI Accelerator Group.
 
+![Template Gallery](assets/gallery-example.png)
+
 ## Overview
 
 This gallery is built with:
@@ -62,18 +64,18 @@ Templates in the gallery are loaded from the `public/data/templates.yaml` file.
 
 * When using `Image` component, make sure the prefix the `src` with the `basePath` from `next.config.ts` so that the images are served from the correct path.
 
-```tsx
-import config from "path/to/next.config";
+  ```tsx
+  import config from "path/to/next.config";
 
-<Image
-  src={`${config.basePath}/next.svg`}
-/>
-```
+  <Image
+    src={`${config.basePath}/next.svg`}
+  />
+  ```
 
 * The following issue occurs when using the `FluentProvider` for which there's a hacky solution. However it is not affecting the production static build nor the performance of the site. Hence we're ignoring it for now. It will show up as a console error in the dev environment though.
 
-```
-@fluentui/react-provider: There are conflicting ids in your DOM. Please make sure that you configured your application properly. 
- 
- Configuration guide: https://aka.ms/fluentui-conflicting-ids
-```
+  ```
+  @fluentui/react-provider: There are conflicting ids in your DOM. Please make sure that you configured your application properly. 
+  
+  Configuration guide: https://aka.ms/fluentui-conflicting-ids
+  ```
