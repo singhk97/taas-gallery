@@ -2,7 +2,10 @@
 
 import { FC, useContext } from 'react';
 import { Text, Button } from '@fluentui/react-components';
-import { WeatherMoon24Regular, WeatherSunny24Regular } from '@fluentui/react-icons';
+import {
+  WeatherMoon24Regular,
+  WeatherSunny24Regular,
+} from '@fluentui/react-icons';
 import { FaGithub } from 'react-icons/fa';
 import useStyles from './NavBar.styles';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -18,10 +21,10 @@ const NavBar: FC = () => {
         <Text className={classes.logoText}>🤖 Teams AI Accelerator Group</Text>
       </Link>
       <div className={classes.navLinks}>
-        <a  
-          href="https://github.com/microsoft/teams-agent-accelerator-samples" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://github.com/microsoft/teams-agent-accelerator-samples"
+          target="_blank"
+          rel="noopener noreferrer"
           className={classes.iconLink}
         >
           <FaGithub className={classes.icon} />
@@ -30,7 +33,7 @@ const NavBar: FC = () => {
           icon={isDark ? <WeatherSunny24Regular /> : <WeatherMoon24Regular />}
           appearance="subtle"
           onClick={toggleTheme}
-          title={isDark ? "Switch to light theme" : "Switch to dark theme"}
+          title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
         />
       </div>
     </nav>
@@ -39,4 +42,4 @@ const NavBar: FC = () => {
 
 NavBar.displayName = 'NavBar';
 
-export default NavBar; 
+export default NavBar;

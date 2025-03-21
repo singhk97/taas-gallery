@@ -24,4 +24,4 @@ export default makeStyles({
     overflowX: 'hidden',
     position: 'relative',
   },
-}); 
+});

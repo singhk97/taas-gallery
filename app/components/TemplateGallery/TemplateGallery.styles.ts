@@ -43,6 +43,6 @@ export default makeStyles({
       gridColumn: '1 / -1',
       maxWidth: '330px',
       justifySelf: 'center',
-    }
+    },
   },
-}); 
+});

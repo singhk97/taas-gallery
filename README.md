@@ -40,7 +40,6 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ## Production Build
 
 To create static export build to `out/` folder, run:
@@ -49,10 +48,24 @@ To create static export build to `out/` folder, run:
 pnpm next build
 ```
 
-> Next.js [static export](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) builds the 
-> application into HTML, CSS, JS, and static assets that can be deployed as a static page. Hence features like 
+> Next.js [static export](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) builds the
+> application into HTML, CSS, JS, and static assets that can be deployed as a static page. Hence features like
 > Server-side rendering, Dynamic routes, and many more do not work. The local development server support these features
-> and so it is possible to introduce code changes that work locally but will failed on static export build. 
+> and so it is possible to introduce code changes that work locally but will failed on static export build.
+
+## Other commands
+
+### Linter
+
+```
+pnpm lint
+```
+
+### Format using Prettier
+
+```
+pnpm format
+```
 
 ## Templates
 
@@ -62,20 +75,18 @@ Templates in the gallery are loaded from the `public/data/templates.yaml` file.
 
 ### Caveats
 
-* When using `Image` component, make sure the prefix the `src` with the `basePath` from `next.config.ts` so that the images are served from the correct path.
+- When using `Image` component, make sure the prefix the `src` with the `basePath` from `next.config.ts` so that the images are served from the correct path.
 
   ```tsx
-  import config from "path/to/next.config";
+  import config from 'path/to/next.config';
 
-  <Image
-    src={`${config.basePath}/next.svg`}
-  />
+  <Image src={`${config.basePath}/next.svg`} />;
   ```
 
-* The following issue occurs when using the `FluentProvider` for which there's a hacky solution. However it is not affecting the production static build nor the performance of the site. Hence we're ignoring it for now. It will show up as a console error in the dev environment though.
+- The following issue occurs when using the `FluentProvider` for which there's a hacky solution. However it is not affecting the production static build nor the performance of the site. Hence we're ignoring it for now. It will show up as a console error in the dev environment though.
 
   ```
-  @fluentui/react-provider: There are conflicting ids in your DOM. Please make sure that you configured your application properly. 
-  
+  @fluentui/react-provider: There are conflicting ids in your DOM. Please make sure that you configured your application properly.
+
   Configuration guide: https://aka.ms/fluentui-conflicting-ids
   ```

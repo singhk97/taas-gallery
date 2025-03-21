@@ -23,7 +23,7 @@ export default makeStyles({
     fontWeight: tokens.fontWeightSemibold,
     '@media (max-width: 500px)': {
       fontSize: tokens.fontSizeBase300,
-    }
+    },
   },
   navLinks: {
     display: 'flex',
@@ -40,7 +40,7 @@ export default makeStyles({
     '@media (max-width: 500px)': {
       fontSize: tokens.fontSizeBase200,
       display: 'none',
-    }
+    },
   },
   iconLink: {
     color: tokens.colorNeutralForeground3,
@@ -54,4 +54,4 @@ export default makeStyles({
   icon: {
     fontSize: '20px',
   },
-}); 
+});

@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import TemplateGallery from './components/TemplateGallery/TemplateGallery';
 import NavBar from './components/NavBar/NavBar';
@@ -11,10 +11,10 @@ const useStyles = makeStyles({
     maxWidth: '1400px',
     margin: '0 auto',
   },
-})
+});
 
 export default function Home() {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <main>

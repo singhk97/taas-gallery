@@ -32,7 +32,7 @@ const resolveImageUrl = (imageUrl: string) => {
     return `${config.basePath}${imageUrl}`;
   }
   return imageUrl;
-}
+};
 
 const TemplateGallery: FC = () => {
   const classes = useStyles();
@@ -44,7 +44,7 @@ const TemplateGallery: FC = () => {
         const response = await fetch(`${config.basePath}/data/templates.yaml`);
         console.log(response);
         const yamlText = await response.text();
-        console.log(yamlText)
+        console.log(yamlText);
         const data = parse(yamlText) as TemplatesData;
         setTemplates(data.templates);
       } catch (error) {
@@ -99,4 +99,4 @@ const TemplateGallery: FC = () => {
 };
 
 TemplateGallery.displayName = 'TemplateGallery';
-export default TemplateGallery; 
+export default TemplateGallery;

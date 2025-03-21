@@ -50,4 +50,4 @@ const Modal: FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
 Modal.displayName = 'Modal';
 
-export default Modal; 
+export default Modal;

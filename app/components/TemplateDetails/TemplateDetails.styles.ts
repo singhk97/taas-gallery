@@ -28,7 +28,7 @@ export default makeStyles({
     '@media (max-width: 800px)': {
       flexDirection: 'column',
       gap: tokens.spacingVerticalXL,
-    }
+    },
   },
   leftColumn: {
     position: 'relative',
@@ -39,7 +39,7 @@ export default makeStyles({
       flex: '1 1 auto',
       borderRight: 'none',
       paddingRight: 0,
-    }
+    },
   },
   leftColumnContent: {
     display: 'flex',
@@ -52,7 +52,7 @@ export default makeStyles({
       position: 'relative',
       top: 0,
       maxHeight: 'none',
-    }
+    },
   },
   rightColumn: {
     display: 'flex',
@@ -62,7 +62,7 @@ export default makeStyles({
     paddingLeft: `calc(${tokens.spacingHorizontalXXXL} * 2)`,
     '@media (max-width: 800px)': {
       paddingLeft: 0,
-    }
+    },
   },
   imageContainer: {
     width: '100%',
@@ -141,8 +141,7 @@ export default makeStyles({
     padding: `${tokens.spacingVerticalXXS} ${tokens.spacingHorizontalS}`,
     borderRadius: tokens.borderRadiusMedium,
   },
-  contentBox: {
-  },
+  contentBox: {},
   section: {
     display: 'flex',
     flexDirection: 'column',
@@ -191,4 +190,4 @@ export default makeStyles({
     height: 'auto',
     display: 'block',
   },
-}); 
+});

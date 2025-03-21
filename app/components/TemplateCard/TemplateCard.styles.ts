@@ -98,10 +98,10 @@ export default makeStyles({
   languageDot: {
     width: '8px',
     height: '8px',
-    borderRadius: '50%'
+    borderRadius: '50%',
   },
   languageText: {
     fontSize: tokens.fontSizeBase100,
     color: tokens.colorNeutralForeground3,
   },
-}); 
+});

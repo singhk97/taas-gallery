@@ -14,5 +14,5 @@ export default makeStyles({
     flexDirection: 'column',
     backgroundColor: tokens.colorNeutralBackground1,
     height: '100%',
-  }
-}); 
+  },
+});

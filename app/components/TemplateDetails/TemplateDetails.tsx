@@ -46,11 +46,21 @@ const renderMarkdown = (text: string): JSX.Element => {
         </Link>
       );
     }
-    return <span key={index}>
-      {part.split('\n').map((line, i) => (
-        i === 0 ? processBold(line) : <span key={i}><br /><br />{processBold(line)}</span>
-      ))}
-    </span>;
+    return (
+      <span key={index}>
+        {part.split('\n').map((line, i) =>
+          i === 0 ? (
+            processBold(line)
+          ) : (
+            <span key={i}>
+              <br />
+              <br />
+              {processBold(line)}
+            </span>
+          )
+        )}
+      </span>
+    );
   });
 
   return <span>{elements}</span>;
@@ -75,13 +85,13 @@ const TemplateDetails: FC<TemplateDetailsProps> = ({
   const getLanguageColor = (language: string) => {
     switch (language) {
       case 'JavaScript':
-        return "#f1e05a";
+        return '#f1e05a';
       case 'Python':
-        return "#3572A5";
+        return '#3572A5';
       case 'TypeScript':
-        return "#2b7489";
+        return '#2b7489';
       case 'C#':
-        return "#178600";
+        return '#178600';
       default:
         return tokens.colorBrandBackground;
     }
@@ -113,11 +123,7 @@ const TemplateDetails: FC<TemplateDetailsProps> = ({
           <div className={classes.leftColumn}>
             <div className={classes.leftColumnContent}>
               <div className={classes.imageContainer}>
-                <img
-                  src={imageUrl}
-                  alt={title}
-                  className={classes.image}
-                />
+                <img src={imageUrl} alt={title} className={classes.image} />
               </div>
               <div className={classes.titleContainer}>
                 <Text className={classes.title}>{title}</Text>
@@ -126,7 +132,10 @@ const TemplateDetails: FC<TemplateDetailsProps> = ({
                   <div className={classes.metaSection}>
                     <Text className={classes.metaLabel}>LANGUAGE</Text>
                     <div className={classes.language}>
-                      <span className={classes.languageDot} style={{ backgroundColor: getLanguageColor(language) }} />
+                      <span
+                        className={classes.languageDot}
+                        style={{ backgroundColor: getLanguageColor(language) }}
+                      />
                       <Text>{language}</Text>
                     </div>
                   </div>
@@ -187,4 +196,4 @@ const TemplateDetails: FC<TemplateDetailsProps> = ({
 
 TemplateDetails.displayName = 'TemplateDetails';
 
-export default TemplateDetails; 
+export default TemplateDetails;
