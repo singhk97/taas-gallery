@@ -6,6 +6,7 @@ import { WeatherMoon24Regular, WeatherSunny24Regular } from '@fluentui/react-ico
 import { FaGithub } from 'react-icons/fa';
 import useStyles from './NavBar.styles';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import config from '../../../next.config';
 
 const NavBar: FC = () => {
   const classes = useStyles();
@@ -13,11 +14,10 @@ const NavBar: FC = () => {
 
   return (
     <nav className={classes.nav}>
-      <a href="/" className={classes.logo}>
+      <a href={`/${config.basePath}`} className={classes.logo}>
         <Text className={classes.logoText}>🤖 Teams AI Accelerator Group</Text>
       </a>
       <div className={classes.navLinks}>
-        <a href="/about" className={classes.link}>About</a>
         <a 
           href="https://github.com/microsoft/teams-agent-accelerator-samples" 
           target="_blank" 
