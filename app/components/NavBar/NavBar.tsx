@@ -15,7 +15,7 @@ const NavBar: FC = () => {
 
   return (
     <nav className={classes.nav}>
-      <Link href={`/${config.basePath}`} className={classes.logo}>
+      <Link href={`/`} className={classes.logo}>
         <Text className={classes.logoText}>🤖 Teams AI Accelerator Group</Text>
       </Link>
       <div className={classes.navLinks}>
